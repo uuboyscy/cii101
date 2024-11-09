@@ -20,19 +20,6 @@ def get_article_string(article_url: str) -> str:
     soup_article_content = soup_article.select(
         'div[id="main-content"]',
     )[0]
-    # print(type(soup_article))
-
-    # div_article_metaline_tags = soup_article_content.select(
-    #     'div[class="article-metaline"]',
-    # )
-    # reply_tags = soup_article_content.select(".push")
-
-    # # print(div_article_metaline_tags)
-    # for div_article_metaline_tag in div_article_metaline_tags:
-    #     div_article_metaline_tag.extract()
-
-    # for reply_tag in reply_tags:
-    #     reply_tag.extract()
 
     extract_attr_list = [
         ".article-metaline",
@@ -43,10 +30,8 @@ def get_article_string(article_url: str) -> str:
     ]
     for attr in extract_attr_list:
         for tag in soup_article_content.select(attr):
-            # print(type(tag))
             tag.extract()
 
-    # print(soup_article_content.text)
     return soup_article_content.text
 
 if __name__ == "__main__":
