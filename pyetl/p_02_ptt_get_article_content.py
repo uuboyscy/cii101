@@ -3,6 +3,8 @@ import os
 import requests
 from bs4 import BeautifulSoup
 
+from test_extract_article_content import get_article_string
+
 
 PTT_FOLDER_PATH = "ptt_article"
 
@@ -36,3 +38,4 @@ for article in articles:
         print(f"Title: {title}, URL: {article_url}")
 
         # Get article content "string"
+        article_string = get_article_string(article_url)
