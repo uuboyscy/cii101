@@ -39,3 +39,9 @@ for article in articles:
 
         # Get article content "string"
         article_string = get_article_string(article_url)
+
+        for replace_word in ["/", "?", "@", "#", "*", ":"]:
+            title = title.replace(replace_word, "")
+
+        with open(f"{PTT_FOLDER_PATH}/{title}.txt", "w", encoding="utf-8") as f:
+            f.write(article_string)
