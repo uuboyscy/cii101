@@ -3,7 +3,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
 
-service = Service("./chromedriver")
+# service = Service("./chromedriver")
+service = Service(r"/Users/uuboy.scy/side-project/tibame/cii101/pyetl/chromedriver")
 driver = Chrome(service=service)
 url = 'https://www.dcard.tw/f/photography'
 
@@ -15,10 +16,10 @@ driver.find_element(by=By.TAG_NAME, value='input').send_keys('攝影')
 time.sleep(5)
 
 # 按下查詢按鈕
-# driver.find_element(
-#     by=By.XPATH, value='//*[@id="__next"]/div[1]/div/div[1]/div/div/form/button[2]'
-# ).click()
-# time.sleep(5)
+driver.find_element(
+    by=By.XPATH, value='//*[@id="__next"]/div[1]/div/div[1]/div/div/form/button[2]'
+).click()
+time.sleep(5)
 
 # 將網頁畫面往下滾動至離頂部 5000 高度的位子
 driver.execute_script('var s = document.documentElement.scrollTop=5000')
